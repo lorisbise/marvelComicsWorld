@@ -1,0 +1,16 @@
+.comics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-left: 70px;
+}
+.page-link{
+    color: black
+}
+
+
+
