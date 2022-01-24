@@ -14,10 +14,10 @@ const DetailsHero = ({ item, copy}) => {
             <img
               style={{
                 borderRadius: '50%',
-                border: "3px solid red",
-                height: "80%",
+                border: "3px solid black",
                 width: "70%",
-                marginBottom: "10px",
+                margin: '20px',
+                boxShadow: '0 25px 40px -15px #000',
               }}
               src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
               alt={item.name}

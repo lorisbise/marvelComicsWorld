@@ -1,3 +1,10 @@
+input {
+    height: 60px;
+    width: 24rem;
+    margin: auto;
+    margin-top: 15px;
+}
+
 .comics {
     display: flex;
     flex-direction: row;
@@ -5,12 +12,44 @@
     align-content: center;
     justify-content: center;
     align-items: flex-end;
-    justify-content: space-between;
-    margin-left: 70px;
+    justify-content: space-around;
+
 }
 .page-link{
     color: black
 }
+.inner{
+    overflow: hidden;
 
+}
+.inner.img{
+    transition: all 1.5 ease;
 
-
+}
+.inner:hover img{
+    transform: scale(1.5);
+    transition-property: transform;
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    flex-shrink: 0;
+  
+}
+.resultCard{
+    width: 15rem;
+    position: static;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    box-shadow: 0 6px 6px -6px #000;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}

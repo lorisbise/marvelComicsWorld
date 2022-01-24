@@ -16,18 +16,18 @@ const DettailsComic = ({ item, copy }) => {
       <Container>
         <Row
           style={{
-            padding: "20px",
-            backgroundColor: "grey",
-            marginTop: "25px",
+          padding: "20px",
+          backgroundColor: "grey",
+          marginTop: "25px",
           }}
         >
           <Col sm="6">
             <img
               style={{
-                border: "3px solid red",
-                height: "90%",
-                width: "70%",
-                marginBottom: "20px",
+              border: "3px solid red",
+              height: "90%",
+              width: "70%",
+              marginBottom: "20px",
               }}
               src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
               alt={item.title}
@@ -67,4 +67,5 @@ const DettailsComic = ({ item, copy }) => {
     </div>
   );
 };
+
 export default DettailsComic;

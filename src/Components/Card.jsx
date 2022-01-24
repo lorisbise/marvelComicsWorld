@@ -6,21 +6,15 @@ import Card from "react-bootstrap/Card";
 
 const Cards = ({ title, text, image }) => {
   return (
-    <Card
-      style={{
-        width: "15rem",
-        position: "static",
-        marginBottom: "15px",
-        marginTop: "15px",
-       
-        
-      }}
-    >
-      <Card.Img  src={image} />
+    <Card className="resultCard" style={{ border: "2px solid #000", height : '18rem'}}>
+      <div className="inner">
+        <img className="card-img-top" src={image} alt={image} />
+      </div>
+
       <Card.Body>
-        <Card.Title style={{ color: 'inherit',
-    textDecoration: 'inherit'}}
-    >{title}</Card.Title>
+        <Card.Title style={{ color: "inherit", textDecoration: "inherit" }}>
+          {title}
+        </Card.Title>
         <Card.Text>{text}</Card.Text>
       </Card.Body>
     </Card>

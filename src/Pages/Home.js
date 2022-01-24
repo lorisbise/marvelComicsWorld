@@ -91,7 +91,7 @@ const Home = () => {
       {loading ? (
         <div className={style.loader}></div>
       ) : (
-        <Container style={{ marginTop: "20px",  }}>
+        <Container>
           <Row >
             <Input
               placeholder="Enter super hero name"
