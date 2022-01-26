@@ -1,7 +1,5 @@
 import Input from "../Components/input";
 import Button from "../Components/btn";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Results from "../Components/Result";
@@ -87,27 +85,30 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div >
       {loading ? (
         <div className={style.loader}></div>
       ) : (
-        <Container>
-          <Row >
-            <Input
-              placeholder="Enter super hero name"
-              onChange={valueInOnChange}
-            />
-          </Row>
-          <Row>
-            <Button variant="dark" text="Cerca" onClick={search} />
-          </Row>
+        <div>
+          <Input
+            placeholder="Enter super hero name"
+            onChange={valueInOnChange}
+          />
+          <Button variant="dark" text="Cerca" onClick={search} />
+
           {errore}
           {heroesIn !== "" ? null : (
-            <div style={{ marginTop: "30px", marginBottom: "30px", color: 'black' }}>
+            <div
+              style={{
+                marginTop: "30px",
+                marginBottom: "30px",
+                color: "black",
+              }}
+            >
               <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                breakLabel={"..."}
+                previousLabel={"<<"}
+                nextLabel={">>"}
+                breakLabel={"-"}
                 pageCount={page}
                 marginPagesDisplay={1}
                 pageRangeDisplay={1}
@@ -136,9 +137,9 @@ const Home = () => {
           {heroesIn !== "" ? null : (
             <div style={{ marginTop: "30px", marginBottom: "30px" }}>
               <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                breakLabel={"..."}
+                previousLabel={"<<"}
+                nextLabel={">>"}
+                breakLabel={"-"}
                 pageCount={page}
                 marginPagesDisplay={6}
                 pageRangeDisplay={6}
@@ -157,7 +158,7 @@ const Home = () => {
               />
             </div>
           )}
-        </Container>
+        </div>
       )}
     </div>
   );

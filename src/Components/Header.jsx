@@ -4,7 +4,7 @@ import Logo from '../img/Logo.png'
 
 import { Link } from 'react-router-dom'
 
-const Header =(props)=>{
+const Header =()=>{
 
   return (
     <Navbar bg="dark" variant="dark">
@@ -17,10 +17,11 @@ const Header =(props)=>{
               width="200"
               height="80"
               className="d-inline-block align-top"
-            />{" "}
+            />
           </Link>
       
         </Navbar.Brand>
+        
       </Container>
     </Navbar>
   );

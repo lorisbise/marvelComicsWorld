@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Characters from "./Characters";
+import {useState, useEffect} from 'react';
 import "../Style/style.css";
 
 const DettailsComic = ({ item, copy }) => {
@@ -10,24 +11,45 @@ const DettailsComic = ({ item, copy }) => {
   let month= data.getMonth()+1
   let day = data.getDate()
   let year = data.getFullYear()
+  const [items, setItems] = useState([]);
+
+
+ const creators = () => {
+   const creatori = []
+   item.creators.items.forEach((data) =>
+     data.role === "writer"
+       ? creatori.push({ writer: data.name })
+       : data.role === "editor"
+       ? creatori.push({ editor: data.name })
+       : null
+   );
+   setItems(creatori)
+ };
+
+   useEffect(() => {
+    creators()
+  }, []);
  
+
+console.log(items);
   return (
     <div>
       <Container>
         <Row
           style={{
-          padding: "20px",
-          backgroundColor: "grey",
-          marginTop: "25px",
+            padding: "20px",
+            backgroundColor: "grey",
+            marginTop: "25px",
           }}
         >
           <Col sm="6">
             <img
               style={{
-              border: "3px solid red",
-              height: "90%",
-              width: "70%",
-              marginBottom: "20px",
+                
+                border: "3px solid black",
+                width: "70%",
+                margin: "20px",
+                boxShadow: "-5px 5px 10px 3px #212529",
               }}
               src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
               alt={item.title}
@@ -44,12 +66,11 @@ const DettailsComic = ({ item, copy }) => {
                 : item.description}
             </p>
 
-            <p>
-              Published: {`${day}/${month}/${year}`}
-            </p>
+            <p>Published: {`${day}/${month}/${year}`}</p>
 
             <p>Page Count: {item.pageCount}</p>
             <br />
+            <p>Creators:</p>
           </Col>
         </Row>
 

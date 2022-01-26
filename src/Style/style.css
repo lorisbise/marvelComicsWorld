@@ -1,9 +1,9 @@
-input {
-    height: 60px;
-    width: 24rem;
-    margin: auto;
-    margin-top: 15px;
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+body{
+    font-family: 'Kalam', cursive;
 }
+
 
 .comics {
     display: flex;
@@ -13,6 +13,7 @@ input {
     justify-content: center;
     align-items: flex-end;
     justify-content: space-around;
+    
 
 }
 .page-link{
@@ -37,10 +38,9 @@ input {
 }
 .resultCard{
     width: 15rem;
-    position: static;
     margin-bottom: 15px;
     margin-top: 15px;
-    box-shadow: 0 6px 6px -6px #000;
+    box-shadow: -5px 5px 10px 3px #212529;
     overflow: hidden;
     cursor: pointer;
     position: relative;
@@ -52,4 +52,10 @@ input {
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 0.25rem;
+
+}
+input{
+    height: 60px;
+    width: 90%;
+    margin-left: 60px;
 }

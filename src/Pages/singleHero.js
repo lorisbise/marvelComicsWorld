@@ -14,10 +14,10 @@ const SingleHero = () => {
   let params = useParams();
   const id = params.id;
   const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState('true')
+
   const [errore, setErrore] = useState("");
   const [copy, setCopy] = useState('')
-  console.log(loading + errore);
+
   
   useEffect(() => {
     const fetch = async () => {
@@ -27,7 +27,7 @@ const SingleHero = () => {
         );
           setCopy(marvelData.data.copyright);
           setItems(marvelData.data.data.results);
-          setLoading('false')
+
       } catch (errore) {
         setErrore(
           <Message
@@ -41,16 +41,13 @@ const SingleHero = () => {
     fetch();
   }, [id]);
 
-  return (<>
-    {items.map(item =>
-                  <DatailsHero  item={item} copy={copy} key={item.id} />
-
-            )
-                
-      }
-    
+  return (
+    <>
+      {items.map((item) => (
+        <DatailsHero item={item} copy={copy} key={item} />
+      ))}
+      {errore}
     </>
-    
   );
   
 };
