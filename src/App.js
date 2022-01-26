@@ -1,4 +1,5 @@
 import Comic from './Pages/singleComic'
+import Serie from './Pages/singleSeries'
 import Header from "./Components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/hero/:id" element={<Hero />} />
         <Route path="/comic/:id" element={<Comic />} />
+        <Route path="/serie/:id" element={<Serie />} />
       </Routes>
     </div>
   );

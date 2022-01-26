@@ -1,4 +1,5 @@
 import Comics from './Comics'
+import Series from './Series'
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,12 +15,12 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 1,
+    items: 1.5,
     slidesToSlide: 1, // optional, default to 1.
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
+    items: 1.1,
     slidesToSlide: 1, // optional, default to 1.
   },
 };
@@ -93,7 +94,7 @@ console.log(item);
         >
           {item.series.items.map((series, i) => (
             <div key={i}>
-              <Comics name={series.name} link={series.resourceURI} />
+              <Series name={series.name} link={series.resourceURI} />
             </div>
           ))}
         </Carousel>

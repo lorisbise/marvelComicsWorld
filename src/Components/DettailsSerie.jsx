@@ -1,40 +1,20 @@
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Characters from "./Characters";
-import {useState, useEffect} from 'react';
 import "../Style/style.css";
 
-const DettailsComic = ({ item, copy }) => {
+const DettailsSerie = ({ item, copy }) => {
+  console.log(item);
 
-  let data = new Date(item.dates[0].date)
-  let month= data.getMonth()+1
-  let day = data.getDate()
-  let year = data.getFullYear()
-  const [items, setItems] = useState([]);
+//   let data = new Date(item.dates[0].date);
+//   let month = data.getMonth() + 1;
+//   let day = data.getDate();
+//   let year = data.getFullYear();
 
 
- const creators = () => {
-   const creatori = []
-   item.creators.items.forEach((data) =>
-     data.role === "writer"
-       ? creatori.push({ writer: data.name })
-       : data.role === "editor"
-       ? creatori.push({ editor: data.name })
-       : null
-   );
-   setItems(creatori)
- };
 
-   useEffect(() => {
-    creators()
-  }, []);
- 
-
-console.log(items);
   return (
     <div>
-      <Container>
         <Row
           style={{
             padding: "20px",
@@ -45,7 +25,6 @@ console.log(items);
           <Col sm="6">
             <img
               style={{
-                
                 border: "3px solid black",
                 width: "70%",
                 margin: "20px",
@@ -61,18 +40,12 @@ console.log(items);
             <br />
 
             <p>
-              {item.description === ""
-                ? "we are sorry but there is no description for this comic"
+              {!item.description 
+                ? `we are sorry but there is no description for serie ${item.title}`
                 : item.description}
             </p>
-
-            <p>Published: {`${day}/${month}/${year}`}</p>
-
-            <p>Page Count: {item.pageCount}</p>
-            <br />
-            <p>Creators:</p>
           </Col>
-        </Row>
+        </Row> 
 
         <h4 style={{ marginTop: "20px" }}>Related characters</h4>
         <div className="comics">
@@ -84,9 +57,9 @@ console.log(items);
             />
           ))}
         </div>
-      </Container>
+
     </div>
   );
 };
 
-export default DettailsComic;
+export default DettailsSerie;

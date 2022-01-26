@@ -1,17 +1,20 @@
 .loader {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
+  display: block;
+  position: fixed;
+  z-index: 1031; /* High z-index so it is on top of the page */
+  top: 50%;
+  right: 40%; /* or: left: 50%; */
+ 
 }
 .loader:after {
   content: " ";
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 150px;
+  height: 150px;
   margin: 8px;
   border-radius: 50%;
   border: 6px solid rgb(255, 0, 0);
-  border-color: rgb(255, 0, 0) transparent #fff transparent;
+  border-color: rgb(255, 0, 0) transparent rgb(251, 255, 0) transparent;
   animation: loader 1.2s linear infinite;
 }
 @keyframes loader {

@@ -6,6 +6,7 @@ body{
 
 
 .comics {
+    padding: 2rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -55,7 +56,20 @@ body{
 
 }
 input{
+    background: inherit;
+    margin-top: 0.5em;
     height: 60px;
-    width: 90%;
-    margin-left: 60px;
+    width: 15rem;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
+body{
+     background-image: linear-gradient(rgba(255,255,255,0.5),
+      rgba(255,255,255,0.5)), 
+      url('https://images7.alphacoders.com/464/thumb-1920-464970.jpg');
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-position: center;
+       
+    }
