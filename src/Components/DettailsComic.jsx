@@ -1,51 +1,48 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Characters from "./Characters";
-import {useState, useEffect} from 'react';
-import "../Style/style.css";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Characters from './Characters';
+import Btn from './btn'
+import {useNavigate} from 'react-router-dom';
+import '../Style/style.css';
 
 const DettailsComic = ({ item, copy }) => {
-
+  const navigate = useNavigate();
   let data = new Date(item.dates[0].date)
   let month= data.getMonth()+1
   let day = data.getDate()
   let year = data.getFullYear()
-  const [items, setItems] = useState([]);
 
 
- const creators = () => {
-   const creatori = []
-   item.creators.items.forEach((data) =>
-     data.role === "writer"
-       ? creatori.push({ writer: data.name })
-       : data.role === "editor"
-       ? creatori.push({ editor: data.name })
-       : null
-   );
-   setItems(creatori)
- };
-
-   useEffect(() => {
-    creators()
-  }, []);
- 
-
-console.log(items);
   return (
     <div>
       <Container>
+        <Row>
+          <Btn
+            variant="dark"
+            text="Back to character"
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
+          <Btn
+            variant="dark"
+            text="Back to Home"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
+        </Row>
         <Row
           style={{
             padding: "20px",
-            backgroundColor: "grey",
+            border: "1px solid black",
             marginTop: "25px",
           }}
         >
           <Col sm="6">
             <img
               style={{
-                
                 border: "3px solid black",
                 width: "70%",
                 margin: "20px",
@@ -56,21 +53,18 @@ console.log(items);
             />
             <h6 style={{ marginBottom: "25px" }}>{copy}</h6>
           </Col>
-          <Col>
+          <Col className="description">
             <h4>{item.title.toUpperCase()}</h4>
             <br />
-
             <p>
               {item.description === ""
-                ? "we are sorry but there is no description for this comic"
+                ? `we are sorry but there is no description for ${item.names}`
                 : item.description}
             </p>
 
             <p>Published: {`${day}/${month}/${year}`}</p>
-
             <p>Page Count: {item.pageCount}</p>
-            <br />
-            <p>Creators:</p>
+            <p>Creators: {item.creators.items.map( creators => ` ${creators.name} (${creators.role}) -  `)}</p>
           </Col>
         </Row>
 

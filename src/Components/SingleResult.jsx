@@ -1,11 +1,12 @@
 import Card from './Card'
 import { Link } from "react-router-dom";
 
-const SingleResult = ({ copy, dati, loading, error }) => {
+const SingleResult = ({ copy, dati }) => {
 
 
   return (
     <div className="comics">
+      
       <Link to={`/hero/${dati.id}`} style={{ textDecoration: "none" }}>
         <Card
           key={dati.id}

@@ -1,17 +1,16 @@
-import Input from "../Components/input";
-import Button from "../Components/btn";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import Results from "../Components/Result";
-import style from "../Style/Spinner.module.css";
-
-import ReactPaginate from "react-paginate";
-import Message from "../Components/Alert"
+import Input from '../Components/input';
+import Button from '../Components/btn';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import Results from '../Components/Result';
+import style from '../Style/Spinner.module.css';
+import ReactPaginate from 'react-paginate';
+import Message from '../Components/Alert'
 
 
 const Home = () => {
-  const [heroesIn, setHeroesIn] = useState("");
-  const [errore, setErrore] = useState("");
+  const [heroesIn, setHeroesIn] = useState('');
+  const [errore, setErrore] = useState('');
   const [item, setItem] = useState([]);
   const [loading, setloading] = useState(true);
   const [page, setPage] = useState(20);
@@ -33,8 +32,8 @@ const Home = () => {
       } catch (errore) {
         setErrore(
           <Message
-            variant="danger"
-            text={"An error has occurred, please try again later"}
+            variant='danger'
+            text={'An error has occurred, please try again later'}
           />
         );
 
@@ -49,23 +48,34 @@ const Home = () => {
     setHeroesIn(e.target.value);
   };
 
- 
-
   //fetch data richiesta utente
   const search = async () => {
-    try {
-      const marvelData = await axios.get(
-        `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${heroesIn}&orderBy=name&limit=100&offset=0&ts=${ts}&apikey=${key_public}&hash=${md5}`
-      );
-      setItem(marvelData.data);
-      setloading(false);
-    } catch (errore) {
-      setErrore(<Message variant="danger" text={"An error has occurred, please try again later"} />);
+    if (heroesIn === ''){
+      return setErrore(<Message text='Inserisci un nome per effettuare la ricerca' variant='danger' />)
     }
-  };
+   
+      try {
+        const marvelData = await axios.get(
+          `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${heroesIn}&orderBy=name&limit=100&offset=0&ts=${ts}&apikey=${key_public}&hash=${md5}`
+        );
+        setItem(marvelData.data);
+        setErrore(false);
+        setloading(false);
+      } catch (errore) {
+        setErrore(
+          <Message
+            variant="danger"
+            text={"An error has occurred, please try again later"}
+          />
+        );
+      }
 
-  const fetchSelected = async (selected) => {
-    
+         
+  
+}
+console.log(item);
+  //Fetch paginations selected
+  const fetchSelected = async (selected) => { 
     let currentPage = 0;
     currentPage = selected * 25;
     const marvelData = await axios.get(
@@ -75,9 +85,8 @@ const Home = () => {
     setloading(false);
     return marvelData.data;
   };
-
+  // Fetch paginations
   const handlePage = async (data) => {
-    
     let selected = data.selected;
     const fetchPage = await fetchSelected(selected);
     setItem(fetchPage);
@@ -85,7 +94,7 @@ const Home = () => {
   };
 
   return (
-    <div >
+    <div>
       {loading ? (
         <div className={style.loader}></div>
       ) : (
@@ -93,9 +102,14 @@ const Home = () => {
           <Input
             placeholder="Enter super hero name"
             onChange={valueInOnChange}
+            value={heroesIn}
           />
-          <Button variant="dark" text="Cerca" onClick={search} />
-
+          <Button
+            variant="dark"
+            text="Search"
+            onClick={search}
+            style={{ marginBottom: "20px" }}
+          />
           {errore}
           {heroesIn !== "" ? null : (
             <div
@@ -106,8 +120,8 @@ const Home = () => {
               }}
             >
               <ReactPaginate
-                previousLabel={"<<"}
-                nextLabel={">>"}
+                previousLabel={"<"}
+                nextLabel={">"}
                 breakLabel={"-"}
                 pageCount={page}
                 marginPagesDisplay={1}
@@ -127,37 +141,12 @@ const Home = () => {
               />
             </div>
           )}
-
           <Results
             copy={item.copyright}
             items={item}
             loading={loading}
             error={errore}
           />
-          {heroesIn !== "" ? null : (
-            <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-              <ReactPaginate
-                previousLabel={"<<"}
-                nextLabel={">>"}
-                breakLabel={"-"}
-                pageCount={page}
-                marginPagesDisplay={6}
-                pageRangeDisplay={6}
-                onPageChange={handlePage}
-                containerClassName={"pagination justify-content-center"}
-                pageClassName={"page-item"}
-                pageLinkClassName={"page-link"}
-                previousClassName={"page-item"}
-                previousLinkClassName={"page-link"}
-                nextClassName={"page-item"}
-                nextLinkClassName={"page-link"}
-                breakClassName={"page-item"}
-                breakLinkClassName={"page-link"}
-                activeClassName={"active"}
-                activeLinkClassName={"page-link"}
-              />
-            </div>
-          )}
         </div>
       )}
     </div>

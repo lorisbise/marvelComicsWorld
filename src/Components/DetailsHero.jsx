@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const DetailsHero = ({ item, copy}) => {
+const DetailsHero = ({ item}) => {
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -15,12 +15,12 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 1.5,
+    items: 2,
     slidesToSlide: 1, // optional, default to 1.
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1.1,
+    items: 1.17,
     slidesToSlide: 1, // optional, default to 1.
   },
 };
@@ -42,7 +42,7 @@ console.log(item);
               alt={item.name}
             />
           </Col>
-          <Col>
+          <Col className="description">
             <h4>{item.name.toUpperCase()}</h4>
             <br />
             <p style={{ textAlign: "justify", textJustify: "inter-word" }}>
@@ -55,7 +55,7 @@ console.log(item);
         <h4>Comics</h4>
         <Carousel
           style={{ marginBottom: "15px" }}
-          swipeable={false}
+          swipeable={true}
           draggable={true}
           showDots={false}
           responsive={responsive}
@@ -66,6 +66,7 @@ console.log(item);
           transitionDuration={400}
           containerClass="carousel-container"
           focusOnSelect={false}
+          showThumbs={true}
           itemClass="carousel-item-padding-40-px"
         >
           {item.comics.items.map((comics, i) => (

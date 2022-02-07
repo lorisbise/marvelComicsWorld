@@ -4,6 +4,12 @@ body{
     font-family: 'Kalam', cursive;
 }
 
+/* .header{
+background-image: linear-gradient(rgba(255,255,255,0.5),
+      rgba(255,255,255,0.5)), 
+      url('../img/header.jpg'); 
+    background-size: contain;
+} */
 
 .comics {
     padding: 2rem;
@@ -41,7 +47,8 @@ body{
     width: 15rem;
     margin-bottom: 15px;
     margin-top: 15px;
-    box-shadow: -5px 5px 10px 3px #212529;
+    box-shadow: -5px 5px 10px 3px #212529; 
+    /* box-shadow: -19px 20px 9px 4px #212529; */
     overflow: hidden;
     cursor: pointer;
     position: relative;
@@ -56,7 +63,9 @@ body{
 
 }
 input{
-    background: inherit;
+    background: linear-gradient(
+89deg
+, #f8f9fa, transparent);
     margin-top: 0.5em;
     height: 60px;
     width: 15rem;
@@ -64,12 +73,38 @@ input{
     margin-right: auto;
     margin-left: auto;
 }
+::placeholder {
+  color: rgb(255, 0, 0);
+  opacity: 2; /* Firefox */
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #ffff00;
+    background-color: #ff0000;
+    border-color: #ffff00; 
+}
+.description{
+    background: linear-gradient(
+89deg
+, #f8f9fa, transparent)
+}
 body{
      background-image: linear-gradient(rgba(255,255,255,0.5),
-      rgba(255,255,255,0.5)), 
-      url('https://images7.alphacoders.com/464/thumb-1920-464970.jpg');
-     background-repeat: no-repeat;
-     background-attachment: fixed;
-     background-position: center;
-       
-    }
+      rgba(255, 255, 255, 0.424)), 
+      url('https://www.photomural.com/media/catalog/product/cache/2/thumbnail/9df78eab33525d08d6e5fb8d27136e95/I/A/IADX6-066.jpg'); 
+        width:100%;
+    height: 100%;
+   background-size: cover;
+
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: 50% 50%;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+content: "";
+z-index: 0;
+}
+      

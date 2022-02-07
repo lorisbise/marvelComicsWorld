@@ -47,10 +47,8 @@ const singleComic = () => {
       {items.map((item, i) => (
         <DettailsComic key={i} item={item} copy={copy} />
       )
-    
-      
       )}
-      
+
     </div>
       
   );
