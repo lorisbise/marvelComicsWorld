@@ -80,7 +80,7 @@ console.log(item);
         <h4>Series</h4>
         <Carousel
           style={{ marginBottom: "15px" }}
-          swipeable={false}
+          swipeable={true}
           draggable={true}
           showDots={false}
           responsive={responsive}
@@ -91,6 +91,7 @@ console.log(item);
           transitionDuration={400}
           containerClass="carousel-container"
           focusOnSelect={false}
+          showThumbs={true}
           itemClass="carousel-item-padding-40-px"
         >
           {item.series.items.map((series, i) => (
