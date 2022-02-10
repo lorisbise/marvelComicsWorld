@@ -49,18 +49,27 @@ const Home = () => {
   };
 
   //fetch data richiesta utente
-  const search = async () => {
+  const search = async (e) => {
+    e.preventDefault();
     if (heroesIn === ''){
-      return setErrore(<Message text='Inserisci un nome per effettuare la ricerca' variant='danger' />)
+      return setErrore(
+        <Message text="Enter a name to search" variant="danger" />
+      );
     }
-   
       try {
         const marvelData = await axios.get(
           `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${heroesIn}&orderBy=name&limit=100&offset=0&ts=${ts}&apikey=${key_public}&hash=${md5}`
         );
         setItem(marvelData.data);
-        setErrore(false);
-        setloading(false);
+         marvelData.data.data.total === 0
+           ? setErrore(
+               <Message
+                 text={`In this App you will be able to find all the Superheroes of the Marvel world and ${heroesIn} does not make art of this world.`}
+                 variant="danger"
+               />
+             )
+           : setErrore(false);
+            setloading(false);
       } catch (errore) {
         setErrore(
           <Message
@@ -69,9 +78,8 @@ const Home = () => {
           />
         );
       }
-
-         
-  
+      
+     
 }
 console.log(item);
   //Fetch paginations selected

@@ -4,12 +4,6 @@ body{
     font-family: 'Kalam', cursive;
 }
 
-/* .header{
-background-image: linear-gradient(rgba(255,255,255,0.5),
-      rgba(255,255,255,0.5)), 
-      url('../img/header.jpg'); 
-    background-size: contain;
-} */
 
 .comics {
     padding: 2rem;
@@ -92,19 +86,18 @@ input{
 body{
      background-image: linear-gradient(rgba(255,255,255,0.5),
       rgba(255, 255, 255, 0.424)), 
-      url('https://www.photomural.com/media/catalog/product/cache/2/thumbnail/9df78eab33525d08d6e5fb8d27136e95/I/A/IADX6-066.jpg'); 
+      url('../img/header.jpg'); 
         width:100%;
     height: 100%;
-   background-size: cover;
-
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-position: 50% 50%;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-content: "";
-z-index: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    z-index: 0;
 }
       

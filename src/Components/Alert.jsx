@@ -14,7 +14,7 @@ import Alert from "react-bootstrap/Alert";
 
 function Message ({variant, text }) {
     return (
-      <div>
+      <div style={{height: '90px'}}>
         <Alert variant={variant}>
           {text}
         </Alert>

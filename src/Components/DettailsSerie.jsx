@@ -9,11 +9,6 @@ const DettailsSerie = ({ item, copy }) => {
   console.log(item);
     const navigate = useNavigate();
 
-//   let data = new Date(item.dates[0].date);
-//   let month = data.getMonth() + 1;
-//   let day = data.getDate();
-//   let year = data.getFullYear();
-
   return (
     <div>
       <Row>
