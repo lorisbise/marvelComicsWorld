@@ -1,11 +1,14 @@
 # MARVEL COMICS WORLD - By Bisesti Loris
-
--This is a Marvel App were you can check out tons of characters and learn more about your favorite heroes!
+This is a Marvel app where you can check out tons of characters, comics and series and learn more about your favorite heroes!
+This single page application was created using React.js and the [Marvel API](https://developer.marvel.com/).
+This application uses Characters, Comics and Series listings.
 
 
 # Technologies used:
 
 -[Create React App](https://create-react-app.dev/)
+
+
 
 -[React Bootstrap](https://react-bootstrap.github.io/)
 
