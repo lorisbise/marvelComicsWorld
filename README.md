@@ -1,9 +1,9 @@
-#MARVEL COMICS WORLD - By Bisesti Loris
+# MARVEL COMICS WORLD - By Bisesti Loris
 
 -This is a Marvel App were you can check out tons of characters and learn more about your favorite heroes!
 
 
-#Technologies used:
+# Technologies used:
 
 -[Create React App](https://create-react-app.dev/)
 
