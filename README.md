@@ -7,15 +7,15 @@
 
 -[Create React App](https://create-react-app.dev/)
 
--[React Bootstrap] (https://react-bootstrap.github.io/)
+-[React Bootstrap](https://react-bootstrap.github.io/)
 
--[Axios] (https://axios-http.com/)
+-[Axios](https://axios-http.com/)
 
 -React-router-dom (Link, Navigate, Params) 
 
 -React-paginate
 
--[React Hooks]
+-React Hooks
 
 -Css module
 
