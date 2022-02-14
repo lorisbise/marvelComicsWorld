@@ -76,7 +76,7 @@ input{
     z-index: 3;
     color: #ffff00;
     background-color: #ff0000;
-    border-color: #ffff00; 
+    border-color: #ffff00;
 }
 .description{
    background: linear-gradient( 89deg , #ffffff87, transparent);
