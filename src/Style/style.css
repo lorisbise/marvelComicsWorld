@@ -79,9 +79,7 @@ input{
     border-color: #ffff00; 
 }
 .description{
-    background: linear-gradient(
-89deg
-, #f8f9fa, transparent)
+   background: linear-gradient( 89deg , #ffffff87, transparent);
 }
 body{
      background-image: linear-gradient(rgba(255,255,255,0.5),

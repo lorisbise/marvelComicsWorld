@@ -27,6 +27,13 @@ const DettailsComic = ({ item, copy }) => {
           />
           <Btn
             variant="dark"
+            text="Back to character list"
+            onClick={() => {
+              navigate("/home");
+            }}
+          />
+          <Btn
+            variant="dark"
             text="Back to Home"
             onClick={() => {
               navigate("/");
@@ -64,7 +71,12 @@ const DettailsComic = ({ item, copy }) => {
 
             <p>Published: {`${day}/${month}/${year}`}</p>
             <p>Page Count: {item.pageCount}</p>
-            <p>Creators: {item.creators.items.map( creators => ` ${creators.name} (${creators.role}) -  `)}</p>
+            <p>
+              Creators:{" "}
+              {item.creators.items.map(
+                (creators) => ` ${creators.name} (${creators.role}) -  `
+              )}
+            </p>
           </Col>
         </Row>
 

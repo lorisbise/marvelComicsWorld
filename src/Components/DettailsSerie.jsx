@@ -21,6 +21,13 @@ const DettailsSerie = ({ item, copy }) => {
         />
         <Btn
           variant="dark"
+          text="Back to character list"
+          onClick={() => {
+            navigate("/home");
+          }}
+        />
+        <Btn
+          variant="dark"
           text="Back to Home"
           onClick={() => {
             navigate("/");

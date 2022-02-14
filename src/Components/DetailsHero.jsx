@@ -4,10 +4,13 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-multi-carousel";
+import Btn from "./btn";
+import { useNavigate } from "react-router-dom";
 import "react-multi-carousel/lib/styles.css";
 
 const DetailsHero = ({ item}) => {
-const responsive = {
+  const navigate = useNavigate();
+  const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3.5,
@@ -28,6 +31,23 @@ console.log(item);
   return (
     <div>
       <Container>
+        <Row>
+          <Btn
+            variant="dark"
+            text="Back to character list"
+            onClick={() => {
+              navigate("/home");
+            }}
+          />
+          <Btn
+            variant="dark"
+            text="Back to Home"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
+        </Row>
+
         <Row style={{ marginTop: "25px" }}>
           <Col sm="5">
             <img
